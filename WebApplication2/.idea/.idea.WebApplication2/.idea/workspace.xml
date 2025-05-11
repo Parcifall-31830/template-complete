@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e2e43808-79e4-4ae9-a529-b2d6c965f97f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication2/Controllers/clientsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication2/Controllers/clientsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication2/Services/DbService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication2/Services/DbService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,21 +44,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.WebApplication2: http.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/xparc/Desktop/CW-7-s31830/WebApplication2/WebApplication2.sln",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.WebApplication2: http.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/xparc/Desktop/CW-7-s31830/WebApplication2/WebApplication2.sln&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="WebApplication2: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebApplication2/WebApplication2.csproj" />
@@ -88,6 +87,7 @@
       <workItem from="1746217702649" duration="2044000" />
       <workItem from="1746453524558" duration="9766000" />
       <workItem from="1746535499159" duration="12741000" />
+      <workItem from="1746998017343" duration="417000" />
     </task>
     <servers />
   </component>

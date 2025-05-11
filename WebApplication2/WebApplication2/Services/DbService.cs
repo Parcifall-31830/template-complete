@@ -126,34 +126,44 @@ public class DbService(IConfiguration config): IDbService
 
         await using var connection = new SqlConnection(connectionString);
         await connection.OpenAsync();
-        
+
         var getIdSql = "SELECT MAX(IdClient) + 1 FROM Client";
         await using var getIdCmd = new SqlCommand(getIdSql, connection);
         var newId = (int)await getIdCmd.ExecuteScalarAsync();
 
-        
-        var sql = @"INSERT INTO Client(FirstName, LastName, Email, Telephone, Pesel) 
+
+        await using var transaction = await connection.BeginTransactionAsync();
+        try
+        {
+            var sql = @"INSERT INTO Client(FirstName, LastName, Email, Telephone, Pesel) 
                 VALUES (@FirstName, @LastName, @Email, @Telephone, @Pesel)";
 
-        await using var command = new SqlCommand(sql, connection);
-        command.Parameters.AddWithValue("@FirstName", client.FirstName);
-        command.Parameters.AddWithValue("@LastName", client.LastName);
-        command.Parameters.AddWithValue("@Email", client.Email);
-        command.Parameters.AddWithValue("@Telephone", client.Telephone);
-        command.Parameters.AddWithValue("@Pesel", client.Pesel);
+            await using var command = new SqlCommand(sql, connection,(SqlTransaction)transaction);
+            command.Parameters.AddWithValue("@FirstName", client.FirstName);
+            command.Parameters.AddWithValue("@LastName", client.LastName);
+            command.Parameters.AddWithValue("@Email", client.Email);
+            command.Parameters.AddWithValue("@Telephone", client.Telephone);
+            command.Parameters.AddWithValue("@Pesel", client.Pesel);
 
-        await command.ExecuteNonQueryAsync();
+            await command.ExecuteNonQueryAsync();
+            await transaction.CommitAsync();
 
-        return new Client()
+            return new Client()
+            {
+                Id = newId,
+                FirstName = client.FirstName,
+                LastName = client.LastName,
+                Email = client.Email,
+                Telephone = client.Telephone,
+                Pesel = client.Pesel,
+            };
+        }
+        catch (Exception)
         {
-            Id = newId,
-            FirstName = client.FirstName,
-            LastName = client.LastName,
-            Email = client.Email,
-            Telephone = client.Telephone,
-            Pesel = client.Pesel,
-        };
-    }
+            await transaction.RollbackAsync();
+            throw;
+        }
+}
 
     public async Task reservationToTripDB(int clientId,int tripId)
     {
